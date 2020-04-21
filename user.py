@@ -14,3 +14,4 @@ class User:
         save user method saves contact
         '''
         User.user_list.append(self)
+        

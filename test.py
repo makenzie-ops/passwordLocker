@@ -12,6 +12,7 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user = User("kevzzz","ximss") # create user object
 
+
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
@@ -27,8 +28,6 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
 
-if __name__ == '__main__':
-    unittest.main()
     
 class TestCredential(unittest.TestCase):
     '''
@@ -39,6 +38,12 @@ class TestCredential(unittest.TestCase):
         Set up method to run before each test cases.
         '''
         self.new_credential = Credential("instagram" ,"african_beauty","selfcare3")
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Credential.credential_list = []   
+            User.user_list=[]
 
     def test_init(self):
         '''
@@ -47,3 +52,18 @@ class TestCredential(unittest.TestCase):
         self.assertEqual(self.new_credential.account,"instagram")
         self.assertEqual(self.new_credential.acc_username,"african_beauty")
         self.assertEqual(self.new_credential.acc_password,"selfcare3")
+
+    
+
+    def test_save_multiple_credential(self):
+            '''
+            test_save_multiple_credential to check if we can save multiple contact
+            objects to our credential_list
+            '''
+            self.new_credential.save_credential()
+            test_credential = Credential("twitter","afroo","selfcare3") # new credential
+            test_credential.save_credential()
+            self.assertEqual(len(Credential.credential_list),2) 
+
+if __name__ == '__main__':
+    unittest.main ()

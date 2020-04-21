@@ -39,3 +39,11 @@ class TestCredential(unittest.TestCase):
         Set up method to run before each test cases.
         '''
         self.new_credential = Credential("instagram" ,"african_beauty","selfcare3")
+
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''    
+        self.assertEqual(self.new_credential.account,"instagram")
+        self.assertEqual(self.new_credential.acc_username,"african_beauty")
+        self.assertEqual(self.new_credential.acc_password,"selfcare3")

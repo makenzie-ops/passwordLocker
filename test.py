@@ -10,7 +10,7 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_user = User("kevzzz","ximss") # create contact object
+        self.new_user = User("kevzzz","ximss") # create user object
 
     def test_init(self):
         '''
@@ -34,3 +34,8 @@ class TestCredential(unittest.TestCase):
     '''
     Test class that defines test cases for the credential class
     '''
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_credential = Credential("instagram" ,"african_beauty","selfcare3")
